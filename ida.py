@@ -1,6 +1,8 @@
 #Primero veremos las variables para que sirve cada uno 
 #Un dato como int pero con capacidad e mostrar decimales o datos enteros 
 x = 20
+
+
 #un strign de palabras 
 nombre="Sandia"
 #Un booleano  con capacidade de true o false 
