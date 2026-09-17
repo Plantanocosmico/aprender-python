@@ -1,0 +1,17 @@
+[
+    {
+        "nombre": "Ana",
+        "edad": 8,
+        "comida": "gelatina"
+    },
+    {
+        "nombre": "Mario",
+        "edad": 26,
+        "comida": "hamburguesas"
+    },
+    {
+        "nombre": "Juan",
+        "edad": 85,
+        "comida": "queso"
+    }
+]
