@@ -1,0 +1,17 @@
+[
+    {
+        "nombre": "crema",
+        "precio": 55,
+        "descripcion": "Sirve para todo el cuerpo"
+    },
+    {
+        "nombre": "Bloqueador",
+        "precio": 35,
+        "descripcion": "Sirve para la cara"
+    },
+    {
+        "nombre": "Depiladora",
+        "precio": 15,
+        "descripcion": "Sirve para todo el cuerpo"
+    }
+]
