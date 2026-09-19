@@ -42,3 +42,7 @@
 #Callable[..., dict]: Explica que lo que hay dentro de la lista es algo que se puede "llamar" o ejecutar (como una función o método). Los puntos suspensivos ... significan que la función puede recibir cualquier tipo de argumento, y la palabra dict significa que, al final, te devolverá un diccionario.
 
 #estudiar list comprehension
+
+#####HERENCIA#####
+ #class Perro(Animal) — Perro hereda todo de Animal
+ # super().__init__(nombre, edad) llama al __init__ del padre para no repetir código
