@@ -46,3 +46,23 @@
 #####HERENCIA#####
  #class Perro(Animal) — Perro hereda todo de Animal
  # super().__init__(nombre, edad) llama al __init__ del padre para no repetir código
+
+
+  ########## Try-except ##############
+
+#ValueError      # valor incorrecto (texto donde esperaba número)
+#ZeroDivisionError  # dividir entre cero
+#TypeError       # tipo incorrecto (sumar string con int)
+#FileNotFoundError  # archivo que no existe
+#IndexError      # posición que no existe en una lista
+#KeyError        # clave que no existe en diccionario
+#finally:   → Corre siempre, haya error o no
+#try:
+ #→ Python intenta ejecutar el código
+  #→ Si algo falla, LANZA la excepción
+#except:
+ # → Atrapa la excepción que se lanzó
+ # → El programa continúa en vez de morir
+
+# raise significa lanzar un error manualmente.
+#as e significa "guarda el error en una variable llamada e para poder usarlo".
