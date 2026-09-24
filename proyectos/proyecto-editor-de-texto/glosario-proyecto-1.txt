@@ -1,0 +1,2 @@
+print("*" * 100) sirve como multiplicador de caracteres 
+Con la r: Python entiende que todo lo que está dentro de las comillas es puro texto visual y no intentará ejecutar ninguna barra. r seria como vaca = r"""

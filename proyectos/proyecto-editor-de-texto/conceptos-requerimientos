@@ -1,0 +1,68 @@
+Fase 1 — Crear y guardar nota
+
+Pedir título, descripción y fecha automática
+
+Seria como opcion 1 crear formato  en formato .md
+nombre del archivo Tema 2 SIG 
+ruta del archivo (por implementar de momento en la ruta actual) seria algo casi crucial pero no se manejarlo
+seria como que te salga eso para guardar archivos en windows auuqe no se con otras plataformas como mac o linux  
+y cuando se crea que te abra automaticamente al archivo para escribri en el 
+Que se guarde en otro documento el nombre la fecha y el (origen del archivo)pòr verse 
+******************
+Caso 2 
+
+Si es poner el campo de texto seria agregar la descricpion junto a la terminal 
+
+
+  Podria ser una clase archivos (Posibel actualizacion en un futuro )
+
+
+
+Para clasificar estos datos lo haria por clases 
+como tema1=
+
+opcion 2 editar 
+
+
+######
+reglas 
+1.-Por el momento un solo tipo de archivo
+2.-Por el momento todo en un mismo guardado 
+
+######
+
+
+
+
+
+
+Ahora cual es la interfaz 
+el usuario tiene botones le saldra esta interfaz
+Crear Revisar actualizar delete
+
+
+
+
+
+
+
+
+
+
+
+Guardar en notas.json
+
+Fase 2 — Ver notas
+
+Listar todas las notas con número
+Ver el contenido de una nota específica
+
+Fase 3 — Editar nota
+
+Seleccionar nota por número
+Corregir título o descripción
+
+Fase 4 — Borrar nota
+
+Seleccionar por número y eliminar
+Si está vacía simplemente se borra
