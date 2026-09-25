@@ -1,4 +1,9 @@
 #**********Fases Proyecto********
+#****IMPORT****
+import json
+
+
+
 #Fase 1.1 Interfaz de app
 def bienvenida() -> str:
   nombre=input("Como te llamas? ")
@@ -19,7 +24,7 @@ def bienvenida() -> str:
 
 #Cartel del menu 
 
-def Cartelmenu() :
+def cartel_menu() :
   menu =r"""
   ************************************************************************************
      __        ___     __          ___  __   ___  __                __   ___  __  __ 
@@ -35,9 +40,9 @@ def opciones(eleccion,mantener:bool):
   if eleccion == 0:
     mantener = False
   if eleccion == 1:
-    nombretema=input("Escribe tu tema:")
-    t1=Temas(nombretema)
-    t1.crear
+    nombrearc=input("Escribe tu tema:")
+    t1=Temas(nombrearc)
+    t1.crearTema()
 
   if eleccion == 2:
     pass
@@ -52,11 +57,28 @@ def verificar_opcion(eleccion):
 
 #**********Clase Tema********************
 class Temas():
-  def __init__(self,nombretema) -> None:
-    self.nombretema=nombretema
-  def crear(self):
-    print("Imprimir mi tema ")
-    #Aqui irira el with open en diferentes contexto 
+  def __init__(self,nombrearchivo) -> None:
+    self.nombrearchivo=nombrearchivo
+
+  def crearJson(self):
+    pass
+
+  def crearTema(self):
+    creadojson=False
+    tareas={"Archivo":f"{self.nombrearchivo}"}
+    colleciondetareas=[tareas]
+    if creadojson == False:
+      with open("arcreados.json","w",encoding="utf-8") as abre:
+        json.dump(tareas,abre, ensure_ascii=False, indent=4)
+        creadojson = True
+    if creadojson == True:
+      descripcion=str(input("Descripcion rapida:"))
+      with open(f"{self.nombrearchivo}.txt","w",encoding="utf-8") as contenido:
+        contenido.write(descripcion)
+        print("Tu archivo fue creado con exito:")
+        return descripcion
+    
+    #Aqui iria el with open en diferentes contexto 
   def eliminar(self):
     pass
 
@@ -68,7 +90,7 @@ print(bienvenida())
 
 mantener=True
 while mantener:
-  print(Cartelmenu())
+  print(cartel_menu())
   print("*"*50)
   print("""
     Opciones:
@@ -85,7 +107,6 @@ while mantener:
   except ValueError as error:
     print(f"Se encontro un error:{error}")
   else:
-    print(verificar_opcion(opcion))
     mantener=opciones(opcion,mantener)
     
 
