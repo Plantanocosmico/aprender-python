@@ -1,7 +1,8 @@
 #**********Fases Proyecto********
 #****IMPORT****
 import json
-
+import os 
+from datetime import datetime
 
 
 #Fase 1.1 Interfaz de app
@@ -60,25 +61,52 @@ class Temas():
   def __init__(self,nombrearchivo) -> None:
     self.nombrearchivo=nombrearchivo
 
-  def crearJson(self):
-    pass
-
   def crearTema(self):
-    creadojson=False
-    tareas={"Archivo":f"{self.nombrearchivo}"}
-    colleciondetareas=[tareas]
-    if creadojson == False:
-      with open("arcreados.json","w",encoding="utf-8") as abre:
-        json.dump(tareas,abre, ensure_ascii=False, indent=4)
-        creadojson = True
-    if creadojson == True:
-      descripcion=str(input("Descripcion rapida:"))
-      with open(f"{self.nombrearchivo}.txt","w",encoding="utf-8") as contenido:
-        contenido.write(descripcion)
-        print("Tu archivo fue creado con exito:")
-        return descripcion
+    #Evaluamos si existe primero un archivo guardado como esa variable 
+    try:
+      with open("arcreados.json","r",encoding="utf-8")as revisa:
+        contenido=json.load(revisa)
+    except FileNotFoundError:
+      #Se crea la lista para poner las tareas  soloo una vez cuando se haya creado la carpeta
+      contenido=[]    
+      #En este caso almacena la traida del usario en tareas y lo deposita en colleciondetareas en su cola
+
+    #Echo por el chat en si que pasaria si en el archivo json esgta vacio esa no me la vi venir 
+    except json.JSONDecodeError:
+      contenido = [] 
+
+
+    #Pide el nombre del archivo y la fecha actual primero saca los datos y luego con la funcion strftime saca la fecha 
+    fecha=datetime.now().strftime("%d/%m/%Y %H:%M")
+    tareas={"Archivo":self.nombrearchivo,"Fecha":fecha}
+    contenido.append(tareas)
+    #Creamos el archivo ahora si 
+    with open("arcreados.json","w",encoding="utf-8") as abre:
+      json.dump(contenido,abre, ensure_ascii=False, indent=4)
+
+    #Vovemos a ponerle una descripcion al archivo en este caso para su creación
+    descripcion=str(input("Descripcion rapida:"))
+    #Pondremos una ruta para todas las notas en este caso como es una version de pracvtica solo en una carpeta 
+    ruta=f"notas/{self.nombrearchivo}.txt"
+    #***********NUEVO************
+    #****Creacion de carpeta*******
+    os.makedirs("notas",exist_ok=True)
+    #Como la ruta tiene al archivo guardamos en ruta 
+    with open(ruta,"w",encoding="utf-8") as contenido:
+      contenido.write(descripcion)
+      print("Tu archivo fue creado con exito:")
+
+      #Verificacion si el archivo existe 
+      try:
+        #Nuevo
+              #abre el archivo conviertiendole en una ruta absoluta 
+        rutaabsoluta=os.path.abspath(ruta)
+        os.startfile(rutaabsoluta)
+      except FileNotFoundError as nocrear:
+        print(f"Se producio un error {nocrear}")  
+      return descripcion
     
-    #Aqui iria el with open en diferentes contexto 
+  
   def eliminar(self):
     pass
 
@@ -109,34 +137,5 @@ while mantener:
   else:
     mantener=opciones(opcion,mantener)
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

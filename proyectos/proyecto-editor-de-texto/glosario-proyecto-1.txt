@@ -1,2 +1,15 @@
 print("*" * 100) sirve como multiplicador de caracteres 
 Con la r: Python entiende que todo lo que está dentro de las comillas es puro texto visual y no intentará ejecutar ninguna barra. r seria como vaca = r"""
+##funcion de os 
+    os.makedirs("notas", exist_ok=True)
+¿Para qué sirve cada parte?
+os: Es el módulo nativo de Python que te permite interactuar con el sistema operativo (crear carpetas, borrar archivos, ver rutas, etc.).
+makedirs(): Es una función de ese módulo. Su ventaja principal es que puede crear carpetas anidadas de golpe (por ejemplo, 
+os.makedirs("año/mes/dia") creará las tres carpetas una dentro de la otra).
+"notas": Es la ruta o nombre de la carpeta que quieres crear.
+exist_ok=True: Es un parámetro de configuración crucial.
+Si es True: Si la carpeta "notas" ya existe, Python no hace nada y el programa continúa normalmente.
+Si es False (o si no lo pones, ya que por defecto es False): Si la carpeta ya existe, Python detendrá tu programa y lanzará un error de tipo FileExistsError.
+
+**********Os************
+os.path.abspath(ruta) COnvierte una ruta simple como "archivo" a una ruta completa dentro del ordenador como "C:/USERS/etc"

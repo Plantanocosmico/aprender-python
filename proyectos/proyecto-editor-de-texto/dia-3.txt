@@ -1,0 +1,5 @@
+Que hare hoy ?
+Bueno voy a arreglar los errores de ayer
+#1 Sera arreglar el error que se registra nuevamente cada variable y poner talvez como variable global podria funcionar auque no se si lo registre
+#2 Apilacion de variable json a la cola hacer una lista que apile los datos 
+
