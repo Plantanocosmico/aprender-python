@@ -44,9 +44,39 @@ def opciones(eleccion,mantener:bool):
     nombrearc=input("Escribe tu tema:")
     t1=Temas(nombrearc)
     t1.crearTema()
-
   if eleccion == 2:
-    pass
+    try:
+      with open("arcreados.json","r",encoding="utf-8")as ver:
+        collecion=json.load(ver)
+        tema=[]
+        if collecion == None:
+          raise ValueError("No existen tareas creadas")
+        print("*********ARCHIVOS************")
+        for indice,nombre,  in enumerate(collecion, start=1):
+          print(f"{indice}. {nombre} ")
+        print("*"*50)
+        
+        indice =list(enumerate(collecion))
+        abri=GestorTemas(indice)
+        print(abri.abrir())
+
+
+
+        """
+        Funcionamiento con contador 
+        contador = 1
+                for tema in collecion:
+                  print(f"{contador}. Archivo: {tema["Archivo"]}")
+                  contador += 1
+        
+    
+        """  
+    except FileNotFoundError:
+      print("No existe un archivo de tareas ")
+    except ValueError as error:
+      print(f"El error es:{error}")
+    #Aqui veo un error al ponr la coleccion abajo de except si pongo el buble no funciona no se porque 
+    
   return mantener
 
 #**************Verifica si la opcion esta bien*************************** 
@@ -92,24 +122,33 @@ class Temas():
     #****Creacion de carpeta*******
     os.makedirs("notas",exist_ok=True)
     #Como la ruta tiene al archivo guardamos en ruta 
-    with open(ruta,"w",encoding="utf-8") as contenido:
-      contenido.write(descripcion)
+    with open(ruta,"w",encoding="utf-8") as archivo:
+      archivo.write(descripcion)
       print("Tu archivo fue creado con exito:")
 
-      #Verificacion si el archivo existe 
-      try:
-        #Nuevo
-              #abre el archivo conviertiendole en una ruta absoluta 
-        rutaabsoluta=os.path.abspath(ruta)
-        os.startfile(rutaabsoluta)
-      except FileNotFoundError as nocrear:
-        print(f"Se producio un error {nocrear}")  
-      return descripcion
+    #Verificacion si el archivo existe 
+    try:
+      #Nuevo
+             #abre el archivo conviertiendole en una ruta absoluta 
+      rutaabsoluta=os.path.abspath(ruta)
+      os.startfile(rutaabsoluta)
+    except FileNotFoundError as nocrear:
+      print(f"Se producio un error {nocrear}")  
+    return descripcion
     
+  #*************Lee lo que esta en la nota**************
   
-  def eliminar(self):
-    pass
+    
+#***** Gestor de Temas ********
+class GestorTemas:
+  def __init__(self,posicion:list) -> None:
+    self.posicion=posicion
 
+  def abrir(self):
+    return f"Esta es la lista {self.posicion}"
+
+    
+    
 
 
 

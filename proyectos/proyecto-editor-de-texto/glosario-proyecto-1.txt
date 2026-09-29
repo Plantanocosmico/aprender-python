@@ -13,3 +13,16 @@ Si es False (o si no lo pones, ya que por defecto es False): Si la carpeta ya ex
 
 **********Os************
 os.path.abspath(ruta) COnvierte una ruta simple como "archivo" a una ruta completa dentro del ordenador como "C:/USERS/etc"
+
+
+*********Bucles Enumerate*********
+frutas = ["manzana", "banana", "cereza"]
+
+for indice, valor in enumerate(frutas):
+    print(indice, valor)
+
+
+for indice,nombre,valor  in enumerate(collecion, start=1):
+          print(f"{indice}. {nombre} {valor} ")
+        print("*"*50)
+? Porque esto es erroneo 
