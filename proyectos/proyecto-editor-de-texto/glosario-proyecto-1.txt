@@ -26,3 +26,7 @@ for indice,nombre,valor  in enumerate(collecion, start=1):
           print(f"{indice}. {nombre} {valor} ")
         print("*"*50)
 ? Porque esto es erroneo 
+otro asunto seria digamos di la collecion se abra el menu 2 hare lo mismo en las posteriores opciones como eliminar y esto como es un proyecto de prueba podria estar bien pero en un entorno real seria muy compleoko abrir cada vez el archivo y no se si consumiria recursos mas de lo necesario podriser ptra fucnion o aquei si eria bueno utilizar herencia o en otro caso abrir una varibale para mantener el dicicionario  en la funcion dee clase 
+
+
+LOa solucion era guardar los numeros en una variable 

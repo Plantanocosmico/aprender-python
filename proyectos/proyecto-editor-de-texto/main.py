@@ -48,16 +48,17 @@ def opciones(eleccion,mantener:bool):
     try:
       with open("arcreados.json","r",encoding="utf-8")as ver:
         collecion=json.load(ver)
-        tema=[]
+  
         if collecion == None:
           raise ValueError("No existen tareas creadas")
+        
         print("*********ARCHIVOS************")
         for indice,nombre,  in enumerate(collecion, start=1):
           print(f"{indice}. {nombre} ")
+          
         print("*"*50)
-        
-        indice =list(enumerate(collecion))
-        abri=GestorTemas(indice)
+        numusuario=int(input("Escribe el numero del archivo que deseas abrir: "))
+        abri=GestorTemas(numusuario)
         print(abri.abrir())
 
 
@@ -129,7 +130,7 @@ class Temas():
     #Verificacion si el archivo existe 
     try:
       #Nuevo
-             #abre el archivo conviertiendole en una ruta absoluta 
+      #abre el archivo conviertiendole en una ruta absoluta 
       rutaabsoluta=os.path.abspath(ruta)
       os.startfile(rutaabsoluta)
     except FileNotFoundError as nocrear:
@@ -141,12 +142,24 @@ class Temas():
     
 #***** Gestor de Temas ********
 class GestorTemas:
-  def __init__(self,posicion:list) -> None:
+  def __init__(self,posicion:int) -> None:
     self.posicion=posicion
 
   def abrir(self):
-    return f"Esta es la lista {self.posicion}"
+    with open("arcreados.json","r",encoding="utf-8")as ver:
+      collecion=json.load(ver)
+    
+    for indice,nombre  in enumerate(collecion, start=1):
+      if self.posicion == indice:
+        ruta=f"notas/{nombre["Archivo"]}.txt"
+        rutaabsoluta=os.path.abspath(ruta)
+        try:
+          os.startfile(rutaabsoluta)
+        except FileNotFoundError as nocrear:
+          print(f"Se producio un error {nocrear}")
 
+
+    return "holi"
     
     
 
