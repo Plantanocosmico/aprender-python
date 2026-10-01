@@ -77,7 +77,27 @@ def opciones(eleccion,mantener:bool):
     except ValueError as error:
       print(f"El error es:{error}")
     #Aqui veo un error al ponr la coleccion abajo de except si pongo el buble no funciona no se porque 
-    
+  if eleccion == 3:
+    try:
+      with open("arcreados.json","r",encoding="utf-8")as ver:
+        collecion=json.load(ver)
+      
+        if collecion == None:
+          raise ValueError("No existen tareas creadas")
+            
+        print("*********ARCHIVOS************")
+        for indice,nombre,  in enumerate(collecion, start=1):
+          print(f"{indice}. {nombre} ")
+              
+        print("*"*50)
+        numusuario=int(input("Escribe el numero del archivo que deseas eliminar: "))
+        abri=GestorTemas(numusuario)
+        print(abri.eliminar())
+
+    except FileNotFoundError:
+      print("No existe un archivo de tareas ")
+    except ValueError as error:
+      print(f"El error es:{error}")
   return mantener
 
 #**************Verifica si la opcion esta bien*************************** 
@@ -96,7 +116,9 @@ class Temas():
     #Evaluamos si existe primero un archivo guardado como esa variable 
     try:
       with open("arcreados.json","r",encoding="utf-8")as revisa:
+        contenido=[]
         contenido=json.load(revisa)
+        
     except FileNotFoundError:
       #Se crea la lista para poner las tareas  soloo una vez cuando se haya creado la carpeta
       contenido=[]    
@@ -144,12 +166,21 @@ class Temas():
 class GestorTemas:
   def __init__(self,posicion:int) -> None:
     self.posicion=posicion
+    self.collecion=self.cargar()
 
+
+  def cargar(self):
+    try:
+      with open("arcreados.json","r",encoding="utf-8")as ver:
+            return json.load(ver)
+    except FileNotFoundError:
+      return []
+    except json.JSONDecodeError: #NO existe uun json
+      return []
+    pass
   def abrir(self):
-    with open("arcreados.json","r",encoding="utf-8")as ver:
-      collecion=json.load(ver)
-    
-    for indice,nombre  in enumerate(collecion, start=1):
+  
+    for indice,nombre  in enumerate(self.cargar(), start=1):#LLamaria a la funcion cargar 
       if self.posicion == indice:
         ruta=f"notas/{nombre["Archivo"]}.txt"
         rutaabsoluta=os.path.abspath(ruta)
@@ -157,10 +188,33 @@ class GestorTemas:
           os.startfile(rutaabsoluta)
         except FileNotFoundError as nocrear:
           print(f"Se producio un error {nocrear}")
-
-
     return "holi"
-    
+
+  #*******Funcion Eliminar*************
+  def eliminar(self):
+    for indice,nombre  in enumerate(self.cargar(), start=1):#LLamaria a la funcion cargar 
+          if self.posicion == indice:
+            ruta=f"notas/{nombre["Archivo"]}.txt"
+            rutaabsoluta=os.path.abspath(ruta)
+            #Elimina en el JSON 
+            nuevalista=self.cargar()
+            nuevalista.pop(self.posicion-1)  #Saca lo que esta en la lista 
+            try:
+              with open("arcreados.json", "w", encoding="utf-8") as abre:
+                json.dump(nuevalista, abre, ensure_ascii=False, indent=4)
+            except FileNotFoundError:
+              print("No existe el archivo")
+            #Pueba si el archivo o ruta sigue existiendo 
+            #*****Elimina el archivo****
+            try:
+              
+              os.remove(rutaabsoluta)
+
+            except FileNotFoundError as nocrear:
+              print(f"Se producio un error {nocrear}")
+    return "Se elimino correctamente el archivo"
+            
+
     
 
 
@@ -176,7 +230,8 @@ while mantener:
     Opciones:
     0.-Salir 
     1.-Crear
-    2.-Eliminar
+    2.-Leer
+    3.-Eliminar
     """)
   print("*"*50)
   try:
