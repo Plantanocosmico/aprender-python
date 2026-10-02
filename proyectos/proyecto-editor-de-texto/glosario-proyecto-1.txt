@@ -30,3 +30,7 @@ otro asunto seria digamos di la collecion se abra el menu 2 hare lo mismo en las
 
 
 LOa solucion era guardar los numeros en una variable 
+
+
+
+Len()=Trata de que cuent alos elmentos que estan en un lugar como una lista 

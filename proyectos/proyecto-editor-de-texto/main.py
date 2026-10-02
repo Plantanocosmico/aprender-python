@@ -54,12 +54,15 @@ def opciones(eleccion,mantener:bool):
         
         print("*********ARCHIVOS************")
         for indice,nombre,  in enumerate(collecion, start=1):
-          print(f"{indice}. {nombre} ")
+          print(f"{indice}. {nombre["Archivo"]} {nombre["Fecha"]} ")
           
         print("*"*50)
         numusuario=int(input("Escribe el numero del archivo que deseas abrir: "))
-        abri=GestorTemas(numusuario)
-        print(abri.abrir())
+        if numusuario < 1 or numusuario >len(collecion):
+          print("Ese archivo no existe ")
+        else:
+          abri=GestorTemas(numusuario)
+          print(abri.abrir())
 
 
 
@@ -87,17 +90,23 @@ def opciones(eleccion,mantener:bool):
             
         print("*********ARCHIVOS************")
         for indice,nombre,  in enumerate(collecion, start=1):
-          print(f"{indice}. {nombre} ")
+          print(f"{indice}. {nombre["Archivo"]} {nombre["Fecha"]} ")
               
         print("*"*50)
         numusuario=int(input("Escribe el numero del archivo que deseas eliminar: "))
-        abri=GestorTemas(numusuario)
-        print(abri.eliminar())
+        if numusuario < 1 or numusuario >len(collecion):
+          print("Ese archivo no existe ")
+        else:
+          abri=GestorTemas(numusuario)
+          print(abri.abrir())
 
     except FileNotFoundError:
       print("No existe un archivo de tareas ")
     except ValueError as error:
       print(f"El error es:{error}")
+
+  if eleccion < 0 or eleccion >3:
+    print("Elija una opcion valida")
   return mantener
 
 #**************Verifica si la opcion esta bien*************************** 
