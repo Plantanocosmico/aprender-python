@@ -24,6 +24,9 @@
 - [ ] Proyecto final: gestor de archivos o diario de pensamientos
 
 ### Mes 2 — Estructuras de datos + JavaScript
+cosas en tomar en cuenta 
+los conceptos de algunas cosas conocidas .pop .index .isdigit .in en caracteres
+in funciones import e export  
 - [ ] Recursividad, pilas, colas, árboles, grafos en Python
 - [ ] JavaScript básico: variables, funciones, DOM
 - [ ] Bitburner como práctica paralela de JS

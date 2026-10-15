@@ -1,0 +1,8 @@
+Instrucciones 
+Ahora impleméntala tú. Crea una clase Pila con:
+
+__init__ — lista vacía como atributo
+push(elemento) — agrega al final de la lista
+pop() — saca el último elemento
+ver_tope() — muestra el último sin sacarlo
+esta_vacia() — devuelve True si no hay elementos

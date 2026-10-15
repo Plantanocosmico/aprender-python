@@ -1,0 +1,7 @@
+***************PILAS***********
+Para ver el último elemento de una lista en Python, utilizas la indexación negativa con el índice [-1]:
+python
+mi_lista = [10, 20, 30, 40]
+print(mi_lista[-1])  # Imprime: 40
+
+Sirve poner una resta -1 ya que va a el utlimo elemtno ayq eu no eziste en general y devuelve el ultimo elemento ya que no tiene algo por devolver 
