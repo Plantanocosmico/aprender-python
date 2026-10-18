@@ -5,3 +5,14 @@ mi_lista = [10, 20, 30, 40]
 print(mi_lista[-1])  # Imprime: 40
 
 Sirve poner una resta -1 ya que va a el utlimo elemtno ayq eu no eziste en general y devuelve el ultimo elemento ya que no tiene algo por devolver 
+**************COLAS/*****************
+Ya sabes que es FIFO — primero en entrar primero en salir. Los métodos son:
+
+enqueue(elemento) — agregar al final
+dequeue() — sacar del frente
+ver_frente() — ver el primero sin sacarlo
+esta_vacia() — igual que en la pila
+
+La diferencia con la pila: en la pila sacas del final, en la cola sacas del inicio.
+
+Impleméntala sola. Pista: para sacar del inicio usa self.lista.pop(0)
