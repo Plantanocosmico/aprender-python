@@ -1,0 +1,15 @@
+/******Problema IA*****
+
+Que necesitas saber:
+Listas, LIstas dinamicas,dict o diccionarios , nodos 
+
+El Contexto del Problema
+Imagina que estás programando la lógica interna para una aplicación estilo Spotify en su versión más básica. Cuando un usuario añade canciones a su cola de reproducción (Queue), las canciones no necesariamente van guardadas en bloques ordenados de memoria; van llegando dinámicamente conforme el usuario las busca y las añade.
+
+Tu misión es adaptar tu clase Nodo y Listaenlazada para que manejen objetos o datos reales (la información de una canción) en lugar de números sueltos.
+
+Que debe hacer:
+debes poder agregar canciones (Que tenga el nombre el artista y el año )
+Mostrar las canciones 
+Buscar cancion 
+Contar cuantas canciones hay 
