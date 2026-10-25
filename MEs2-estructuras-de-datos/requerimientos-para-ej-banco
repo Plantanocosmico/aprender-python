@@ -1,0 +1,12 @@
+Con un menú simple:
+
+banco = Listaenlazada()
+banco.agregar_nodo_enqueue({"nombre": "Ana", "ticket": 1})
+banco.agregar_nodo_enqueue({"nombre": "Luis", "ticket": 2})
+banco.agregar_nodo_enqueue({"nombre": "Rosa", "ticket": 3})
+
+Opción 1 — llega cliente nuevo
+Opción 2 — atender siguiente
+Opción 3 — ver quién es el siguiente sin atenderlo
+Opción 4 — ver cuántos esperan
+Opción 0 — salir
