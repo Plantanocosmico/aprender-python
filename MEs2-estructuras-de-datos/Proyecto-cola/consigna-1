@@ -1,0 +1,31 @@
+Tarea No. 13
+
+Uso de Colas
+
+Ejercicio No. 18
+
+Simularemos una agencia Bancaria.
+
+1.-Crearemos las colas 1, 2 y 3, las colas se llenarán a Random, con 15 personas por cola.
+
+Asignaremos una edad (18 a 90 años), un tipo de transacción (depósito, pago de cheque y pago de tarjeta de crédito, a cada persona de la cola).
+
+Se atenderá a las personas punta de las colas según este orden de prioridad.
+
+1. Personas de Tercera Edad (>60), no importando la transacción a realizar. (debe analizar las tres colas en su longitud total previamente, para dar esta prioridad).
+
+2. Luego se atenderá primero a los de pago a Tarjeta de crédito.
+
+3. Luego se atenderá segundo a los que traen depósito.
+
+4. Por último se atenderá a los que cobren cheque.
+
+Reporte en pantalla será:
+
+Cuantas personas eran de tercera edad
+
+Cuantas personas con Depósito, Pago Tarjeta de Crédito, Cobro de Cheque se atendieron en total en la agencia bancaria.
+
+python
+
+juanpageek@ryrtechnology.net
